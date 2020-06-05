@@ -1,10 +1,5 @@
 ---
 
-- name: Create Empty Autotasks Dictionary if Not Defined in Config
-  set_fact:
-     database_autotasks: {}
-  when: database_autotasks is not defined
-
 - name: Get List of Current Database Autotask Statuses
   script:  get_autotask_status.sh {{ database_sid }}
   register: current_autotask_statuses
