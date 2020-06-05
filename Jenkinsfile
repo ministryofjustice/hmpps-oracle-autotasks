@@ -2,7 +2,7 @@ def eng_account = "895523100917"
 
 def project = [:]
 project.config      = 'hmpps-env-configs'
-project.d_man_dep   = 'delius-manual-deployments'
+project.autotasks   = 'hmpps-oracle-database-autotasks'
 
 def environments = [
   'delius-core-sandpit',
@@ -65,8 +65,8 @@ pipeline {
         dir( project.config ) {
           git url: 'git@github.com:ministryofjustice/' + project.config, branch: env.GIT_BRANCH.split(/\//)[1], credentialsId: 'f44bc5f1-30bd-4ab9-ad61-cc32caf1562a'
         }
-        dir( project.d_man_dep ) {
-          git url: 'git@github.com:ministryofjustice/' + project.d_man_dep,  branch: env.GIT_BRANCH.split(/\//)[1], credentialsId: 'f44bc5f1-30bd-4ab9-ad61-cc32caf1562a'
+        dir( project.autotasks ) {
+          git url: 'git@github.com:ministryofjustice/' + project.autotasks,  branch: env.GIT_BRANCH.split(/\//)[1], credentialsId: 'f44bc5f1-30bd-4ab9-ad61-cc32caf1562a'
         }
         prepare_env()
       }
