@@ -43,7 +43,7 @@ def run_ansible(environment_name) {
             bash -c \"export ANSIBLE_CONFIG=/home/tools/data/hmpps-env-configs/ansible/ansible.cfg && \
                   ansible-playbook -u hmpps_integration_test \
                   -i "/home/tools/data/hmpps-env-configs/${environment_name}/ansible" \
-                  ./delius-oracle-autotasks/operations/configure_autotasks.yml \
+                  ./delius-oracle-database-autotasks/operations/configure_autotasks.yml \
                   --extra-vars "target_host=delius_primarydb,mis_primarydb,misboe_primarydb,misdsd_primarydb" \
                   -v \"
         set -x
