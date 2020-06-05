@@ -44,7 +44,7 @@ def run_ansible(environment_name) {
                   ansible-playbook -u hmpps_integration_test \
                   -i "/home/tools/data/hmpps-env-configs/${environment_name}/ansible" \
                   ./hmpps-oracle-database-autotasks/configure_oracle_autotasks.yml \
-                  --extra-vars "target_host=delius_primarydb,mis_primarydb,misboe_primarydb,misdsd_primarydb" \
+                  --extra-vars "target_hosts=delius_primarydb,mis_primarydb,misboe_primarydb,misdsd_primarydb" \
                   -v \"
         set -x
         """
