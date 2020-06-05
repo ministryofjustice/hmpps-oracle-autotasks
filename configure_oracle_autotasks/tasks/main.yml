@@ -1,0 +1,16 @@
+---
+
+- name: Get Database SID
+  set_fact:
+     database_sid: "{{ database_primary_sid | default(database_standby_sid) }}"
+
+- name: Set Autotask Windows
+  include: set_autotask_windows.yml
+  tags: windows
+
+- name: Set Autotask Status
+  include: set_autotask_status.yml
+  tags: status
+
+
+ 
