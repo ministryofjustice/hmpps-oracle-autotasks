@@ -53,7 +53,7 @@ def run_ansible(environment_name) {
 
 pipeline {
 
-  agent { label "oracle_slave" }
+  agent { label "oracle_ops" }
 
   parameters {
     choice(name: 'environment_name', choices: environments, description: 'Select environment')
