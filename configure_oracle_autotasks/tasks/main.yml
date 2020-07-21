@@ -4,6 +4,10 @@
   set_fact:
      database_sid: "{{ database_primary_sid | default(database_standby_sid) }}"
 
+# Ensure Default Scheduler Timezone is set to Europe/London to account for UK Daylight Savings
+- name: Set Default Scheduler Timezone
+  include: set_scheduler_timezone.yml
+
 # If autotask_windows is not configured for this environment then simply keep the default autotask windows
 - name: Set Autotask Windows
   include: set_autotask_windows.yml
