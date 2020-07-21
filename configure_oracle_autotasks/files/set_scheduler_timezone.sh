@@ -4,7 +4,7 @@
 
 sqlplus -s /  as sysdba <<EOF
 WHENEVER SQLERROR EXIT FAILURE
-SET FEEBACK OFF
+SET FEEDBACK OFF
 SET SERVEROUT ON
 BEGIN
    DBMS_SCHEDULER.set_scheduler_attribute (
