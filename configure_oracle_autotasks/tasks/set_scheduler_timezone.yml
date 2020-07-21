@@ -13,4 +13,4 @@
 
 - name: Set Default Scheduler Timezone
   script:  set_scheduler_timezone.sh
-  when: get_scheduler_timezone.stdout is search ('.*Europe/London.*')
+  when: get_scheduler_timezone.stdout_lines[0] != 'Europe/London'
