@@ -7,7 +7,7 @@
 
 - set_fact:
         database_autotasks_actual: "{{ database_autotasks_actual | default({}) | combine(dict([item.split(',')])) }}"
-  with_items: "{{ current_autotask_statuses.stdout_lines }}"
+  with_items: "{{ current_autotask_statuses.stdout_lines | select() | list}}"
 
 # In Oracle the status of an Autotask is either ENABLED or DISABLED but the keyword used to change status is ENABLE or DISABLE.
 # To avoid unexpected behaviour due to typos we treat ENABLED and ENABLE as equivalent, and DISABLED and DISABLE as equivalent

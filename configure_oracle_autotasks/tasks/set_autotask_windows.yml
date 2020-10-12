@@ -11,7 +11,7 @@
 
 - set_fact:
         database_windows_actual: "{{ database_windows_actual | default({}) | combine({item.split(',')[0]: {'repeat_interval': item.split(',')[1], 'duration_mins': item.split(',')[2]}}) }}"
-  with_items: "{{ current_autotask_windows.stdout_lines }}"
+  with_items: "{{ current_autotask_windows.stdout_lines | select() | list }}"
 
 # Check and Update Any Mis-matched Repeat Intervals
 - name: Generate List of Repeat Intervals for the Week
