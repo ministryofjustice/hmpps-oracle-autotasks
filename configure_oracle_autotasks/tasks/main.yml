@@ -20,3 +20,8 @@
   when: database_autotasks is defined
   tags: status
 
+# If statistics_advisor is not configured for this environment then simply keep the current setting
+- name: Set Statistics Advisor Status
+  include: set_statistics_advisor_status.yml
+  when: database_autotasks['statistics_advisor'] is defined
+  tags: statistics_advisor
